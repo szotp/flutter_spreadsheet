@@ -1,0 +1,24 @@
+name: hello_world_desktop
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  csv:
+
+  color_panel:
+    path: ../flutter-desktop-embedding/plugins/color_panel
+  file_chooser:
+    path: ../flutter-desktop-embedding/plugins/file_chooser
+  menubar:
+    path: ../flutter-desktop-embedding/plugins/menubar
+
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
