@@ -23,7 +23,7 @@ class CellTapHandler extends StatefulWidget {
 
 class SpreadSheetCellManager extends State<CellTapHandler> {
   final controller = TextEditingController();
-  final focusNode = FocusNode();
+  FocusNode focusNode = FocusNode();
   final visibleCells = <int, EditableNode>{};
 
   EditableNode activeCell;
@@ -31,13 +31,6 @@ class SpreadSheetCellManager extends State<CellTapHandler> {
   @override
   void initState() {
     super.initState();
-
-    focusNode.addListener(() {
-      if (focusNode.hasFocus) {
-        final c = controller;
-        c.selection = TextSelection(baseOffset: 0, extentOffset: c.text.length);
-      }
-    });
   }
 
   void onSubmitted() {
@@ -67,6 +60,13 @@ class SpreadSheetCellManager extends State<CellTapHandler> {
     }
 
     focusNode.unfocus();
+    focusNode = FocusNode();
+    focusNode.addListener(() {
+      if (focusNode.hasFocus && controller.text.isNotEmpty) {
+        final c = controller;
+        c.selection = TextSelection(baseOffset: 0, extentOffset: c.text.length);
+      }
+    });
 
     if (activeCell?.mounted == true) {
       activeCell?.setEditing(null);
@@ -115,7 +115,7 @@ class SpreadSheetCellManager extends State<CellTapHandler> {
       child: GestureDetector(
         onTapDown: (details) {
           final RenderBox obj = context.findRenderObject();
-          final result = HitTestResult();
+          final result = BoxHitTestResult();
           final position = obj.globalToLocal(details.globalPosition);
           if (!obj.hitTest(result, position: position)) {
             return;

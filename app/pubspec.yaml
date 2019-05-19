@@ -9,13 +9,6 @@ environment:
 dependencies:
   csv:
 
-  color_panel:
-    path: ../flutter-desktop-embedding/plugins/color_panel
-  file_chooser:
-    path: ../flutter-desktop-embedding/plugins/file_chooser
-  menubar:
-    path: ../flutter-desktop-embedding/plugins/menubar
-
   flutter:
     sdk: flutter
 

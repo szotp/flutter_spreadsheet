@@ -5,7 +5,7 @@ import 'model.dart';
 import 'sheet.dart';
 
 import 'package:flutter/material.dart';
-import 'package:menubar/menubar.dart';
+//import 'package:menubar/menubar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,19 +22,19 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     future = loadModel();
 
-    setApplicationMenu([
-      Submenu(label: 'Data', children: [
-        MenuItem(
-          label: 'Clear all',
-          onClicked: () {
-            setState(() {
-              model.clearAll();
-            });
-          },
-        ),
-        MenuDivider(),
-      ])
-    ]);
+    // setApplicationMenu([
+    //   Submenu(label: 'Data', children: [
+    //     MenuItem(
+    //       label: 'Clear all',
+    //       onClicked: () {
+    //         setState(() {
+    //           model.clearAll();
+    //         });
+    //       },
+    //     ),
+    //     MenuDivider(),
+    //   ])
+    // ]);
   }
 
   Future<SpreadSheetModel> loadModelOnly() async {

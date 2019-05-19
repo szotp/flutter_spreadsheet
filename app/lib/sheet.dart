@@ -67,6 +67,7 @@ class _SpreadSheetState extends State<SpreadSheet> {
         return DefaultTextStyle(
           style: Styles.of(context).cellTextStyle,
           child: GridView.builder(
+            controller: contentController,
             itemCount: widget.model.totalCells,
             itemBuilder: (context, i) {
               return SpreadSheetCell(
